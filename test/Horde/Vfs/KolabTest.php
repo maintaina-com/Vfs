@@ -10,9 +10,8 @@
  * @author     Gunnar Wrobel <wrobel@pardus.de>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-namespace Horde\Vfs;
-use \PHPUnit\Framework\TestCase;
 
+use \PHPUnit\Framework\Testcase;
 /**
  * Test the Kolab based virtual file system.
  *
@@ -27,7 +26,7 @@ use \PHPUnit\Framework\TestCase;
  * @author     Gunnar Wrobel <wrobel@pardus.de>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class KolabTest extends TestCase
+class Horde_Vfs_KolabTest extends TestCase
 {
 
     /**

@@ -8,10 +8,9 @@
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-namespace Horde\Vfs;
-use \Horde_Test_Case;
 
-class TestBase extends Horde_Test_Case
+
+class Horde_Vfs_TestBase extends Horde_Test_Case
 {
     protected static $reason = '';
     protected static $vfs;

@@ -11,7 +11,7 @@
  * @package    VFS
  * @subpackage UnitTests
  */
-namespace Horde\Vfs;
+
 /**
  * Test the MongoDB virtual file system.
  *
@@ -23,7 +23,8 @@ namespace Horde\Vfs;
  * @package    VFS
  * @subpackage UnitTests
  */
-class MongoTest extends TestBase
+
+class Horde_Vfs_MongoTest extends Horde_Vfs_TestBase
 {
     protected static $_mongo;
 

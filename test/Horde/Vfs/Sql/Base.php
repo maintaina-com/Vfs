@@ -164,7 +164,7 @@ class Horde_Vfs_Test_Sql_Base extends Horde_Vfs_TestBase
         $this->_nullRoot();
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         $logger = new Horde_Log_Logger(new Horde_Log_Handler_Cli());
         //self::$db->setLogger($logger);
@@ -186,7 +186,7 @@ class Horde_Vfs_Test_Sql_Base extends Horde_Vfs_TestBase
         self::$vfs = new Horde_Vfs_Sql(array('db' => self::$db));
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (self::$migrator) {
             if (self::$db) {

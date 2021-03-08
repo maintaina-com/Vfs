@@ -14,9 +14,8 @@
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-namespace Horde\Vfs;
 
-class FileTest extends TestBase
+class Horde_Vfs_FileTest extends Horde_Vfs_TestBase
 {
 
     public function testListEmpty()
