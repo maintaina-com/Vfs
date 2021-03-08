@@ -13,9 +13,11 @@
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_SmbTest extends Horde_Vfs_TestBase
+namespace Horde\Vfs;
+
+class SmbTest extends TestBase
 {
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         $config = self::getConfig('VFS_SMB_TEST_CONFIG', __DIR__);
         if ($config && !empty($config['vfs']['smb'])) {
@@ -29,7 +31,7 @@ class Horde_Vfs_SmbTest extends Horde_Vfs_TestBase
         }
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (self::$vfs) {
             try {
@@ -41,7 +43,7 @@ class Horde_Vfs_SmbTest extends Horde_Vfs_TestBase
         parent::tearDownAfterClass();
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -49,7 +51,7 @@ class Horde_Vfs_SmbTest extends Horde_Vfs_TestBase
         date_default_timezone_set('Europe/Berlin');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         date_default_timezone_set($this->_oldTimezone);
     }

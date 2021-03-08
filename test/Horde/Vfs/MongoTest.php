@@ -11,7 +11,7 @@
  * @package    VFS
  * @subpackage UnitTests
  */
-
+namespace Horde\Vfs;
 /**
  * Test the MongoDB virtual file system.
  *
@@ -23,7 +23,7 @@
  * @package    VFS
  * @subpackage UnitTests
  */
-class Horde_Vfs_MongoTest extends Horde_Vfs_TestBase
+class MongoTest extends TestBase
 {
     protected static $_mongo;
 
@@ -186,7 +186,7 @@ class Horde_Vfs_MongoTest extends Horde_Vfs_TestBase
         $this->_nullRoot();
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (($config = self::getConfig('VFS_MONGO_TEST_CONFIG', __DIR__)) &&
             isset($config['vfs']['mongo']['hostspec'])) {
@@ -206,7 +206,7 @@ class Horde_Vfs_MongoTest extends Horde_Vfs_TestBase
         }
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (!empty(self::$_mongo)) {
             self::$_mongo->selectDB(null)->drop();

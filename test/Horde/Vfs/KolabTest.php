@@ -10,6 +10,8 @@
  * @author     Gunnar Wrobel <wrobel@pardus.de>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Vfs;
+use \PHPUnit\Framework\TestCase;
 
 /**
  * Test the Kolab based virtual file system.
@@ -25,7 +27,7 @@
  * @author     Gunnar Wrobel <wrobel@pardus.de>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_KolabTest extends PHPUnit_Framework_TestCase
+class KolabTest extends TestCase
 {
 
     /**
@@ -33,7 +35,7 @@ class Horde_Vfs_KolabTest extends PHPUnit_Framework_TestCase
      *
      * @return NULL
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->markTestIncomplete('Convert to Horde4');
 

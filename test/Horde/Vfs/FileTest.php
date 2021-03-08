@@ -14,7 +14,9 @@
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_FileTest extends Horde_Vfs_TestBase
+namespace Horde\Vfs;
+
+class FileTest extends TestBase
 {
 
     public function testListEmpty()
@@ -206,14 +208,14 @@ class Horde_Vfs_FileTest extends Horde_Vfs_TestBase
         $this->assertFileNotExists($path);
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         self::$vfs = Horde_Vfs::factory('File', array(
             'vfsroot' => sys_get_temp_dir() . '/vfsfiletest'
         ));
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         system('rm -r ' . sys_get_temp_dir() . '/vfsfiletest');
         parent::tearDownAfterClass();
