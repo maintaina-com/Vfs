@@ -172,7 +172,7 @@ class Ssh2Test extends TestBase
         $this->_nullRoot();
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (!extension_loaded('ssh2')) {
             self::$reason = 'No ssh2 extension';
@@ -186,7 +186,7 @@ class Ssh2Test extends TestBase
         }
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (self::$vfs) {
             try {
