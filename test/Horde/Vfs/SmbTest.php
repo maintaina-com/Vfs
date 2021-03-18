@@ -13,8 +13,10 @@
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
+namespace Horde\Vfs;
+use Horde_Vfs_TestBase as TestBase;
 
-class Horde_Vfs_SmbTest extends Horde_Vfs_TestBase
+class SmbTest extends TestBase
 {
     public static function setUpBeforeClass(): void
     {
