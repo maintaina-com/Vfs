@@ -8,7 +8,14 @@
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_Test_Sql_Base extends Horde_Vfs_TestBase
+namespace Horde\Vfs\Sql;
+use Horde\Vfs\TestBase;
+use \Horde_Log_Logger;
+use \Horde_Log_Handler_Cli;
+use \Horde_Db_Migration_Migrator;
+use \Horde_Vfs_Sql;
+
+class BaseTestCase extends TestBase
 {
     protected static $db;
 
@@ -22,6 +29,7 @@ class Horde_Vfs_Test_Sql_Base extends Horde_Vfs_TestBase
     public function testCreateFolder()
     {
         $this->_createFolderStructure();
+        $this->markTestIncomplete();
     }
 
     /**

@@ -15,7 +15,6 @@
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
 namespace Horde\Vfs;
-use Horde_Vfs_TestBase as TestBase;
 use \Horde_Vfs;
 
 class FileTest extends TestBase

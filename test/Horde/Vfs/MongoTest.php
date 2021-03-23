@@ -12,7 +12,6 @@
  * @subpackage UnitTests
  */
 namespace Horde\Vfs;
-use Horde_Vfs_TestBase as TestBase;
 
 /**
  * Test the MongoDB virtual file system.

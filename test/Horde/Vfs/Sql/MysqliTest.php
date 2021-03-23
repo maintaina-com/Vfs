@@ -3,9 +3,7 @@
  * Prepare the test setup.
  */
 namespace Horde\Vfs\Sql;
-use Horde_Vfs_Test_Sql_Base as Base;
-
-require_once __DIR__ . '/Base.php';
+use Horde\Vfs\Sql\BaseTestCase;
 
 /**
  * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
@@ -16,7 +14,7 @@ require_once __DIR__ . '/Base.php';
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class MysqliTest extends Base
+class MysqliTest extends BaseTestCase
 {
     public static function setUpBeforeClass(): void
     {

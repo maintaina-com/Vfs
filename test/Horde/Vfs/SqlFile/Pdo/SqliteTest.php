@@ -3,10 +3,8 @@
  * Prepare the test setup.
  */
 namespace Horde\Vfs\SqlFile\Pdo;
-use Horde_Vfs_Test_SqlFile_Base as Base;
+use Horde\Vfs\SqlFile\BaseTestCase;
 use \Horde_Test_Factory_Db;
-
-require_once __DIR__ . '/../Base.php';
 
 /**
  * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
@@ -17,7 +15,7 @@ require_once __DIR__ . '/../Base.php';
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class SqliteTest extends Base
+class SqliteTest extends BaseTestCase
 {
     public static function setUpBeforeClass(): void
     {

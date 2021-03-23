@@ -8,7 +8,11 @@
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_Test_SqlFile_Base extends Horde_Vfs_TestBase
+namespace Horde\Vfs\SqlFile;
+use Horde\Vfs\TestBase;
+use \Horde_Log_Logger;
+
+class BaseTestCase extends TestBase
 {
     protected static $db;
 
