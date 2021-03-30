@@ -8,19 +8,22 @@
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_TestBase extends Horde_Test_Case
+namespace Horde\Vfs;
+use Horde_Test_Case as TestCase;
+
+class TestBase extends TestCase
 {
     protected static $reason = '';
     protected static $vfs;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!self::$vfs) {
             $this->markTestSkipped(self::$reason);
         }
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         self::$vfs = null;
     }

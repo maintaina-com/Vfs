@@ -8,7 +8,14 @@
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_Test_SqlFile_Base extends Horde_Vfs_TestBase
+namespace Horde\Vfs\Sql;
+use Horde\Vfs\TestBase;
+use \Horde_Log_Logger;
+use \Horde_Log_Handler_Cli;
+use \Horde_Db_Migration_Migrator;
+use \Horde_Vfs_Sql;
+
+class BaseTestCase extends TestBase
 {
     protected static $db;
 
@@ -22,6 +29,7 @@ class Horde_Vfs_Test_SqlFile_Base extends Horde_Vfs_TestBase
     public function testCreateFolder()
     {
         $this->_createFolderStructure();
+        $this->markTestIncomplete();
     }
 
     /**
@@ -164,12 +172,8 @@ class Horde_Vfs_Test_SqlFile_Base extends Horde_Vfs_TestBase
         $this->_nullRoot();
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
-        // The SqlFile VFS driver needs to be refactored to a real composite
-        // driver.
-        return;
-
         $logger = new Horde_Log_Logger(new Horde_Log_Handler_Cli());
         //self::$db->setLogger($logger);
         $dir = __DIR__ . '/../../../../migration/Horde/Vfs';
@@ -187,22 +191,23 @@ class Horde_Vfs_Test_SqlFile_Base extends Horde_Vfs_TestBase
                   'schemaTableName' => 'horde_vfs_schema_info'));
         self::$migrator->up();
 
-        self::$vfs = new Horde_Vfs_SqlFile(array('db' => self::$db));
+        self::$vfs = new Horde_Vfs_Sql(array('db' => self::$db));
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (self::$migrator) {
+            if (self::$db) {
+                self::$db->delete('DELETE FROM horde_vfs');
+                self::$db->delete('DELETE FROM horde_muvfs');
+            }
             self::$migrator->down();
         }
-        //self::$db->disconnect();
-        self::$db = null;
+        if (self::$db) {
+            self::$db->disconnect();
+        }
+        self::$db = self::$migrator = null;
         parent::tearDownAfterClass();
     }
 
-    public function setUp()
-    {
-        $this->markTestIncomplete('The SqlFile VFS driver needs to be refactored to a real composite driver.');
-        parent::setUp();
-    }
 }

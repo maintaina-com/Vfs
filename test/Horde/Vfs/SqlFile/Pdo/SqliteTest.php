@@ -2,7 +2,9 @@
 /**
  * Prepare the test setup.
  */
-require_once __DIR__ . '/../Base.php';
+namespace Horde\Vfs\SqlFile\Pdo;
+use Horde\Vfs\SqlFile\BaseTestCase;
+use \Horde_Test_Factory_Db;
 
 /**
  * Copyright 2012-2017 Horde LLC (http://www.horde.org/)
@@ -13,17 +15,15 @@ require_once __DIR__ . '/../Base.php';
  * @subpackage UnitTests
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_SqlFile_Pdo_SqliteTest extends Horde_Vfs_Test_SqlFile_Base
+class SqliteTest extends BaseTestCase
 {
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         $factory_db = new Horde_Test_Factory_Db();
 
-        try {
+        if (class_exists('Horde_Db_Adapter_Pdo_Sqlite')) {
             self::$db = $factory_db->create();
             parent::setUpBeforeClass();
-        } catch (Horde_Test_Exception $e) {
-            self::$reason = 'Sqlite not available';
-        }
+        } 
     }
 }

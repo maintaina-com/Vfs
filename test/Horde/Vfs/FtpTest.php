@@ -13,7 +13,9 @@
  * @author     Jan Schneider <jan@horde.org>
  * @license    http://www.horde.org/licenses/lgpl21 LGPL 2.1
  */
-class Horde_Vfs_FtpTest extends Horde_Vfs_TestBase
+namespace Horde\Vfs;
+
+class FtpTest extends TestBase
 {
     public function testListEmpty()
     {
@@ -170,7 +172,7 @@ class Horde_Vfs_FtpTest extends Horde_Vfs_TestBase
         $this->_nullRoot();
     }
 
-    public static function setUpBeforeClass()
+    public static function setUpBeforeClass(): void
     {
         if (!extension_loaded('ftp')) {
             self::$reason = 'No ftp extension';
@@ -184,7 +186,7 @@ class Horde_Vfs_FtpTest extends Horde_Vfs_TestBase
         }
     }
 
-    public static function tearDownAfterClass()
+    public static function tearDownAfterClass(): void
     {
         if (self::$vfs) {
             try {
