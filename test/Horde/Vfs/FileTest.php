@@ -176,11 +176,12 @@ class FileTest extends TestBase
     }
 
     /**
-     * @expectedException Horde_Vfs_Exception
      * @expectedExceptionMessage Unable to access VFS directory root.
      */
     public function testListFolderWithoutPermissions()
     {
+        $this->expectException('Horde_Vfs_Exception');
+        
         if (!is_dir('/root')) {
             $this->markTestSkipped('No /root folder to test permissions.');
         }
